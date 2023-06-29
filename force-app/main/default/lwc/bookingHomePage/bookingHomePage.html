@@ -1,0 +1,29 @@
+<template>
+
+    <lightning-card title="Welcome To Classic Venue" slot="actions">
+
+        <div class="flex-container">
+
+            <div class="flexy slds-size_2-of-5">
+                From a traditional ceremony to a grand reception, Classic Venue is the place for your big day. Our
+                professional coordinators at hand will make sure your event is one of a kind and will be remembered
+                forever. We know that your event is one of the most important days of your life, and we will make sure
+                extra attention is dedicated to your special event.
+            </div>
+            <div class="slds-float_right flexyy slds-size_2-of-5">
+                <lightning-carousel>
+                    <lightning-carousel-image src={torontoImage}>
+                    </lightning-carousel-image>
+                    <lightning-carousel-image src={anotherImage}>
+                    </lightning-carousel-image>
+                </lightning-carousel>
+            </div>
+        </div>
+    </lightning-card>
+
+    <lightning-button variant="brand" label="Book Now" onclick={openModal} class="slds-m-left_x-small">
+    </lightning-button>
+
+    
+
+</template>

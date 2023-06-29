@@ -1,0 +1,71 @@
+<template>
+
+        <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+
+                <template if:false={isTrue}>
+
+                    <lightning-card title="Enter Your Details">
+
+                        <lightning-record-edit-form object-api-name={objectApiName} onsuccess={handleSuccess} onerror={handleError}
+                            density="Compact">
+                            <lightning-input-field field-name={nameField}></lightning-input-field>
+                            <lightning-input-field field-name={contactField}></lightning-input-field>
+                            <lightning-input-field field-name={addressField}></lightning-input-field>
+                            <lightning-input-field field-name={emailField}></lightning-input-field>
+                            <lightning-input-field field-name={eventField}></lightning-input-field>
+                            <lightning-input-field field-name={dateField}></lightning-input-field>
+                            <lightning-input-field field-name={timeField}></lightning-input-field>
+                            <lightning-input-field field-name={attendeeField}></lightning-input-field>
+                            <lightning-button label="Next" variant="brand" type="submit"></lightning-button>
+                        </lightning-record-edit-form>
+
+                    </lightning-card>
+
+                </template>
+
+                <template if:true={isDisplayed}>
+
+                    <lightning-flow flow-api-name={flowApiName} flow-input-variables={flowInputVariables}
+                        onstatuschange={handleFlowStatusChange}>
+                    </lightning-flow>
+
+                </template>
+
+                <template lwc:if={isOver}>
+                    <lightning-card title="Total Cost">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Venue Charge</th>
+                                    <th>Entertainment Charge</th>
+                                    <th>Service Charge</th>
+                                    <th>Snacks Charge</th>
+                                    <th>Dinner Charge</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{venueCost}</td>
+                                    <td>{entertainmentCharge}</td>
+                                    <td>{serviceCharge}</td>
+                                    <td>{totalDinnerCost}</td>
+                                    <td>{totalSnackCost}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <lightning-button variant="default" label="Cancel" type="cancel"
+                            onclick={handleCancel}></lightning-button>
+                        <lightning-button label="Confirm" variant="brand" type="submit"
+                            onclick={handleConfirm}></lightning-button>
+                    </lightning-card>
+
+                </template>
+
+            </div>
+
+        </section> 
+
+
+
+</template>

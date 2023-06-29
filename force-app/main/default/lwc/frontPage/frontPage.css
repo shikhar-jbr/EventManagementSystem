@@ -1,0 +1,17 @@
+.container{
+    text-align: center;
+    text-decoration-color: brown;
+    font-size: 200%;
+}
+
+.flex-container{
+    display: flex;
+    height: fit-content;
+}
+
+.flexy{
+    flex:1;
+    border: 2px;
+}
+
+
